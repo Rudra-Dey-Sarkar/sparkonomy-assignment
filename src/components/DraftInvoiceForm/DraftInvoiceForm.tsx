@@ -35,7 +35,7 @@ function DraftInvoiceForm({ isDraftInvoiceFormOpen, setIsDraftInvoiceFormOpen, i
             id: draftData?.id,
             name: draftData?.name ?? "",
             amount: draftData?.amount ?? "0",
-            due_date: draftData?.due_date ?? new Date(),
+            due_date: draftData?.due_date ?? new Date().toISOString().split("T")[0],
             notify: false,
             status: draftData?.status ?? "Awaited"
         },
@@ -80,7 +80,7 @@ function DraftInvoiceForm({ isDraftInvoiceFormOpen, setIsDraftInvoiceFormOpen, i
                         {...form.register("due_date", { required: true })}
                         type="date"
                         value={form.watch("due_date") ? new Date(form.watch("due_date")).toISOString().split("T")[0] : ""}
-                        onChange={e => form.setValue("due_date", new Date(e.target.value))}
+                        onChange={e => form.setValue("due_date", new Date().toISOString().split("T")[0])}
                         placeholder="Due Date"
                     />
                 </div>
