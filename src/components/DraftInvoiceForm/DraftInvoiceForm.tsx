@@ -85,7 +85,8 @@ function DraftInvoiceForm({ isDraftInvoiceFormOpen, setIsDraftInvoiceFormOpen, i
                     />
                 </div>
             </div>
-
+            
+            
             <Label className='text-[14px]'>Status*</Label>
             <select
                 {...form.register("status", { required: true })}
