@@ -2,7 +2,7 @@ export type InvoiveType = {
     id:string;
     name: string;
     amount: string;
-    due_date: Date;
+    due_date: string;
     notify:boolean;
     status:  StatusType;
 }

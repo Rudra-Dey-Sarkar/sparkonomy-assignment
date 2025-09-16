@@ -20,7 +20,7 @@ export default function Home() {
       id: "",
       name: "",
       amount: "0",
-      due_date: new Date((new Date().toISOString().split("T")[0])),
+      due_date: new Date().toISOString().split("T")[0],
       notify: false,
       status: "Awaited"
     },
@@ -37,8 +37,7 @@ export default function Home() {
       newData.push(...JSON.parse(invoiceData));
     }
 
-    newData.push({ ...formData, id:"invoice_" + uuid() + "_" + (new Date().getTime()),status: "Draft" });
-
+    newData.push({ ...formData, id:"invoice_" + uuid() + "_" + (new Date().getTime()),status: "Draft", due_date:new Date().toISOString().split("T")[0] });
     localStorage.setItem("invoice", JSON.stringify(newData));
     form.reset();
   }

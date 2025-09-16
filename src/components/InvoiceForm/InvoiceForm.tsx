@@ -71,7 +71,9 @@ function InvoiceForm({ setIsInvoiceFormOpen, form }: InvoiceFormType) {
                         {...form.register("due_date", { required: true })}
                         type="date"
                         value={form.watch("due_date") ? new Date(form.watch("due_date")).toISOString().split("T")[0] : ""}
-                        onChange={e => {form.setValue("due_date", new Date(e.target.value))}}
+                        onChange={e => {
+                            form.setValue("due_date", e.target.value)
+                        }}
                         placeholder="Due Date"
                     />
                 </div>
